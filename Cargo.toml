@@ -1,0 +1,17 @@
+[package]
+name = "bigdecimal_decimal_benchmarking"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rust_decimal = "1.36"
+rust_decimal_macros = "1.36"
+bigdecimal = { version = "0.4", features = ["serde"], default-features = false }
+sqlx = { version = "0.8", features = ["runtime-tokio", "tls-rustls", "postgres", "bigdecimal", "rust_decimal", "macros"], default-features = false }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "my_benchmark"
+harness = false
